@@ -27,11 +27,43 @@ class _CounterScreenState extends State<CounterScreen> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
+      backgroundColor: Color(0xFFF5F7FA),
       body: Center(
-        child: Text(
-          "Smart Counter",
-          style: TextStyle(fontSize: 28), 
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children:  [
+            Text(
+              "Smart Counter",
+              style: TextStyle(
+                fontSize: 26,
+                fontWeight: FontWeight.w600,
+                color: Colors.black87,
+              ),
+            ),
+            SizedBox(height: 20),
+            Text(
+              "0",
+              style: TextStyle(
+                fontSize: 72,
+                fontWeight: FontWeight.bold,
+                color: Colors.blueAccent,
+              ),
+            ),
+            SizedBox(height: 10),
+            Text(
+              "Tap the button to increase",
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.black54,
+              ),
+            ),
+          ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: null,
+        backgroundColor: Colors.blueAccent,
+        child: Icon(Icons.add),
       ),
     );
   }
