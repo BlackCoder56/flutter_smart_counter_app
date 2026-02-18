@@ -24,15 +24,18 @@ class CounterScreen extends StatefulWidget {
 }
 
 class _CounterScreenState extends State<CounterScreen> {
+
+  int _count = 0;
+
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: Color(0xFFF5F7FA),
+    return Scaffold(
+      backgroundColor: const Color(0xFFF5F7FA),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children:  [
-            Text(
+            const Text(
               "Smart Counter",
               style: TextStyle(
                 fontSize: 26,
@@ -40,10 +43,10 @@ class _CounterScreenState extends State<CounterScreen> {
                 color: Colors.black87,
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Text(
-              "0",
-              style: TextStyle(
+              "$_count",
+              style: const TextStyle(
                 fontSize: 72,
                 fontWeight: FontWeight.bold,
                 color: Colors.blueAccent,
@@ -61,7 +64,11 @@ class _CounterScreenState extends State<CounterScreen> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: null,
+        onPressed: () {
+          setState(() {
+            _count++;
+          });
+        },
         backgroundColor: Colors.blueAccent,
         child: Icon(Icons.add),
       ),
