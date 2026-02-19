@@ -26,6 +26,20 @@ class CounterScreen extends StatefulWidget {
 class _CounterScreenState extends State<CounterScreen> {
 
   int _count = 0;
+  
+  void _increment() {
+    setState(() {
+      _count++;
+    });
+  }
+
+  void _decrement(){
+    setState((){
+      if(_count > 0) {
+        _count--;
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,15 +77,24 @@ class _CounterScreenState extends State<CounterScreen> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          setState(() {
-            _count++;
-          });
-        },
-        backgroundColor: Colors.blueAccent,
-        child: Icon(Icons.add),
-      ),
+      floatingActionButton: Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        FloatingActionButton(
+          heroTag: "decrease",
+          onPressed: _decrement,
+          backgroundColor: Colors.redAccent,
+          child: const Icon(Icons.remove),
+        ),
+        const SizedBox(width: 16),
+        FloatingActionButton(
+          heroTag: "increase",
+          onPressed: _increment,
+          backgroundColor: Colors.blueAccent,
+          child: const Icon(Icons.add),
+        )
+      ],
+    ),
     );
   }
 }
